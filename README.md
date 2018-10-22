@@ -30,8 +30,8 @@
 ### Retrofit转换工厂有哪些
 
 * Retrofit的转换工厂Convert.Factor有3种转换类型
-* stringConverter:负责将方法参数的类型转化为String类型,用于除了@Part、@PartMap、@Body、@Raw的参数注解
-* requestBodyConverter:负责将方法参数的类型转化为RequestBody类型，用于@Part、@PartMap、@Body、@Raw的参数注解
+* stringConverter:负责将方法参数的类型转化为String类型,用于除了@Part、@PartMap、@Body、@RawPart的参数注解
+* requestBodyConverter:负责将方法参数的类型转化为RequestBody类型，用于@Part、@PartMap、@Body、@RawPart的参数注解
 * responseBodyConverter:负责将网络请求结束获取的responseBody转化成指定的实体对象
 
 ### Retrofit回调在哪个线程，OkHttp的回调在哪个线程
