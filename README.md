@@ -13,8 +13,14 @@
 ### Class对象
 
 ```kotlin
+    // 方法的注解
+    val methodAnnotations: Array<Type> = method.getAnnotations()
+    // 方法的参数类型
+    val methodParameterTypes: Array<Type> = method.getGenericParameterTypes()
+
+
     // 方法返回类型
-    val returnType = method.getGenericReturnType()
+    val returnType: Type = method.getGenericReturnType()
 
     ParameterizedType
     GenericArrayType
