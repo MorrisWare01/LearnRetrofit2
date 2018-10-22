@@ -1,4 +1,4 @@
-package com.morrisware.android.retrofitlearn
+package com.morrisware.android.retrofitlearn.bean
 
 import com.google.gson.annotations.SerializedName
 
