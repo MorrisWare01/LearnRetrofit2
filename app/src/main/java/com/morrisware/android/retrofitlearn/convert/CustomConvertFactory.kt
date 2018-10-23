@@ -1,5 +1,6 @@
 package com.morrisware.android.retrofitlearn.convert
 
+import android.util.Log
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Converter
@@ -13,10 +14,12 @@ import java.lang.reflect.Type
 class CustomConvertFactory : Converter.Factory() {
 
     override fun stringConverter(type: Type, annotations: Array<Annotation>, retrofit: Retrofit): Converter<*, String>? {
+        Log.d("Converter.Factory", "stringConverter $type")
         return StringConvert()
     }
 
     override fun requestBodyConverter(type: Type, parameterAnnotations: Array<Annotation>, methodAnnotations: Array<Annotation>, retrofit: Retrofit): Converter<*, RequestBody>? {
+        Log.d("Converter.Factory", "requestBodyConverter $type")
         if (type == FormData::class.java) {
             return RequestBodyConvert()
         }
@@ -24,6 +27,7 @@ class CustomConvertFactory : Converter.Factory() {
     }
 
     override fun responseBodyConverter(type: Type, annotations: Array<Annotation>, retrofit: Retrofit): Converter<ResponseBody, *>? {
+        Log.d("Converter.Factory", "responseBodyConverter $type")
         if (type == String::class.java) {
             return ResponseBodyConvert()
         }

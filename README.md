@@ -34,6 +34,11 @@
 * requestBodyConverter:负责将方法参数的类型转化为RequestBody类型，用于@Part、@PartMap、@Body、@RawPart的参数注解
 * responseBodyConverter:负责将网络请求结束获取的responseBody转化成指定的实体对象
 
+### Retrofit的CallAdapter作用
+
+* responseType(): 用于匹配responseBodyConverter<Response, responseType>
+* get(): 将原始Call<responseType>转成指定类型返回
+
 ### Retrofit回调在哪个线程，OkHttp的回调在哪个线程
 
 * Retrofit回调Executor在Retrofit.Builder的callbackExecutor配置，默认是主线程

@@ -1,5 +1,6 @@
 package com.morrisware.android.retrofitlearn.adapter
 
+import android.util.Log
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import java.lang.reflect.Type
@@ -11,6 +12,7 @@ import java.lang.reflect.Type
 class CustomCallAdapterFactory : CallAdapter.Factory() {
 
     override fun get(returnType: Type, annotations: Array<Annotation>, retrofit: Retrofit): CallAdapter<*, *>? {
+        Log.d("CallAdapter.Factory", "CustomCallAdapterFactory $returnType")
         if (getRawType(returnType) != CustomCall::class.java) {
             return null
         }

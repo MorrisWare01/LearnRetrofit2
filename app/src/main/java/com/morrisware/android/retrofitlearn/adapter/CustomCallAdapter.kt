@@ -9,21 +9,21 @@ import java.lang.reflect.Type
  * Created by MorrisWare on 2018/10/22.
  * Email: MorrisWare01@gmail.com
  */
-class CustomCallAdapter : CallAdapter<Any, CustomCall> {
+class CustomCallAdapter : CallAdapter<String, CustomCall> {
 
     override fun responseType(): Type {
         return String::class.java
     }
 
-    override fun adapt(call: retrofit2.Call<Any>): CustomCall {
+    override fun adapt(call: retrofit2.Call<String>): CustomCall {
         return object : CustomCall {
             override fun enqueue(callback: Callback) {
-                call.enqueue(object : retrofit2.Callback<Any?> {
-                    override fun onFailure(call: Call<Any?>, t: Throwable) {
+                call.enqueue(object : retrofit2.Callback<String?> {
+                    override fun onFailure(call: Call<String?>, t: Throwable) {
                         callback.onFailure(t)
                     }
 
-                    override fun onResponse(call: Call<Any?>, response: Response<Any?>) {
+                    override fun onResponse(call: Call<String?>, response: Response<String?>) {
                         callback.onSuccess(response.body().toString())
                     }
                 })
